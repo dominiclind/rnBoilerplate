@@ -1,0 +1,53 @@
+import React from 'react-native'
+import {connect} from 'react-redux'
+
+import {Actions} from 'react-native-router-flux';
+
+let {
+  View,
+  Text,
+  StyleSheet,
+  Component
+} = React
+
+
+class {{properCase name}} extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    const {dispatch} = this.props;
+  }
+  
+  render() {
+    return (
+      <View style={ styles.page }>
+        <Text>i am container {{properCase name}}!</Text>
+      </View>
+    )
+  }
+}
+
+
+// styles
+const styles = StyleSheet.create({
+  page : {
+    flex: 1,
+    justifyContent:'center',
+    alignItems: 'center'
+  }
+});
+
+
+// get relevant props from state
+function mapStateToProps(state) {
+  const { navigation } = state
+
+  return {
+		navigation
+  }
+}
+
+export default connect(mapStateToProps)({{properCase name}})

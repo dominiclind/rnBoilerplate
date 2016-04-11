@@ -1,0 +1,25 @@
+import * as types from '../constants/actions'
+
+/*
+
+	Reducer for {{properCase name}}.
+	Gets previous state as first argument, action as second.
+
+	Should only return new state based on action & previous state.
+
+*/
+
+
+// {{properCase name}} initial state, what to return on init
+const initialState = {};
+
+
+export default function {{camelCase name}}(state = initialState, action) {
+  switch (action.type) {
+
+	/*reducers*/
+
+  default:
+    return state
+	}
+}
