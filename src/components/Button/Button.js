@@ -4,7 +4,8 @@ let {
   View,
   Text,
   StyleSheet,
-  Component
+  Component,
+  TouchableOpacity
 } = React
 
 
@@ -19,9 +20,13 @@ class Button extends Component {
 
   render() {
     return (
-      <View style={ styles.component }>
-        <Text>{this.props.children}</Text>
-      </View>
+      <TouchableOpacity>
+        <View style={ styles.component }>
+          <Text style={ styles.text }>
+            {this.props.children.toUpperCase()}
+          </Text>
+        </View>
+    </TouchableOpacity>
     )
   }
 }
@@ -30,9 +35,14 @@ class Button extends Component {
 // styles
 const styles = StyleSheet.create({
   component : {
-    backgroundColor:'blue',
-    paddingHorizontal:20,
-    paddingVertical:40
+    backgroundColor:'black',
+    paddingHorizontal:40,
+    paddingVertical:20
+  },
+  text: {
+    color:'white',
+    fontWeight:'600',
+    letterSpacing:3
   }
 });
 
