@@ -3,13 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
     "react": "^0.14.8",
-    "react-native": "^0.23.1",    "react-native-router-flux": "^3.2.6",
+    "react-native": "^0.23.1",
+    "react-native-drawer": "^2.0.0",
+    "react-native-router-flux": "^3.2.6",
     "react-redux": "^4.4.1",
     "redux": "3.3.1",
     "redux-thunk": "1.0.3"
+  },
+  "devDependencies": {
+    "remote-redux-devtools": "^0.1.5",
+    "remote-redux-devtools-on-debugger": "^0.4.0",
+    "remotedev-server": "0.0.6"
   }
 }
