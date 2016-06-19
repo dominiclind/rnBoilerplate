@@ -2,10 +2,9 @@ import * as types from '../constants/actions';
 
 /*actions*/
 
-// action : ToggleMenu
-export function toggleMenu() {
+// action : incrementValue
+export function incrementValue() {
 	return {
-	  type: types.TOGGLE_MENU
+	  type: types.INCREMENT_VALUE
 	};
 }
-

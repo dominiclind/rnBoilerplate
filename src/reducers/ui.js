@@ -11,19 +11,21 @@ import * as types from '../constants/actions'
 
 
 //  initial state, what to return on init
-const initialState = {};
+const initialState = {
+  value: 0
+};
 
 
 export default function (state = initialState, action) {
   switch (action.type) {
 
 	/*reducers*/
-	case types.TOGGLE_MENU:
+	case types.INCREMENT_VALUE:
 		// state == old state
 		return Object.assign({}, state, {
 			// new state
-
-		})
+      value: state.value + 1
+		});
 
 
   default:

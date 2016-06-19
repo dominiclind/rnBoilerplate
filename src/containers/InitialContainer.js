@@ -1,14 +1,13 @@
-import React from 'react-native'
-import {connect} from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+import { incrementValue } from '../actions/ui';
 
-import {Actions} from 'react-native-router-flux';
-
-let {
+import {
   View,
   Text,
-  StyleSheet,
-  Component
-} = React
+  StyleSheet
+} from 'react-native';
 
 import Button from '../components/Button/Button';
 
@@ -19,14 +18,21 @@ class InitialContainer extends Component {
   }
 
   componentDidMount() {
-    const {dispatch} = this.props;
+    const { dispatch } = this.props;
+  }
+  increase() {
+    const { dispatch } = this.props;
+    console.log('increaseee!!');
+    dispatch(incrementValue());
   }
 
   render() {
+    const { value } = this.props;
+
     return (
       <View style={ styles.page }>
-        <Text>i am container InitialContainer!</Text>
-        <Button>CLick me!</Button>
+        <Text>Value: {value}</Text>
+        <Button onPress={() => this.increase() }>INCREASE</Button>
     </View>
     )
   }
@@ -45,10 +51,11 @@ const styles = StyleSheet.create({
 
 // get relevant props from state
 function mapStateToProps(state) {
-  const { navigation } = state
+  const { ui } = state;
+  const { value } = ui;
 
   return {
-		navigation
+		value
   }
 }
 

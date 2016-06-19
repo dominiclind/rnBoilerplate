@@ -1,2 +1,2 @@
 /*actions*/
-export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const INCREMENT_VALUE = 'INCREMENT_VALUE';

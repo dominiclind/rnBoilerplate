@@ -1,12 +1,11 @@
-import React from 'react-native'
+import React, { Component } from 'react';
 
-let {
+import {
   View,
   Text,
   StyleSheet,
-  Component,
   TouchableOpacity
-} = React
+} from 'react-native';
 
 
 class Button extends Component {
@@ -20,14 +19,14 @@ class Button extends Component {
 
   render() {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.props.onPress}>
         <View style={ styles.component }>
           <Text style={ styles.text }>
             {this.props.children.toUpperCase()}
           </Text>
         </View>
-    </TouchableOpacity>
-    )
+      </TouchableOpacity>
+    );
   }
 }
 
@@ -47,4 +46,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Button
+export default Button;

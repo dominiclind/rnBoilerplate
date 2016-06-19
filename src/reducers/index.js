@@ -5,7 +5,7 @@ import ui from '../reducers/ui'
 
 const rootReducer = combineReducers({
   /*combine*/
-ui,
+  ui,
 })
 
 export default rootReducer

@@ -1,13 +1,8 @@
-import React from 'react-native'
-import {Router, Scene} from 'react-native-router-flux'
-
-let {
-  Component
-} = React
+import React, { Component } from 'react';
+import {Scene, Router} from 'react-native-router-flux';
 
 /*containers*/
 import InitialContainer from './containers/InitialContainer'
-
 
 class Routes extends Component {
   constructor(props) {
@@ -17,7 +12,11 @@ class Routes extends Component {
     return (
       <Router hideNavBar={true}>
         <Scene key="root">
-          <Scene key="initial" type="replace" initial={true} component={InitialContainer}/>
+          <Scene
+            key="initial"
+            initial
+            component={InitialContainer}
+          />
         </Scene>
       </Router>
     )

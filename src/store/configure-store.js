@@ -3,6 +3,7 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers/index';
 import devTools from 'remote-redux-devtools';
+import Reactotron from 'reactotron'
 
 let configureStore;
 
@@ -14,7 +15,8 @@ if (__DEV__) {
       name: Platform.OS,
       hostname: 'localhost',
       port: 8000
-    })
+    }),
+    Reactotron.storeEnhancer()
   );
 } else {
   enhancer = applyMiddleware(thunkMiddleware);
