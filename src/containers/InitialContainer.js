@@ -32,7 +32,7 @@ class InitialContainer extends Component {
     return (
       <View style={ styles.page }>
         <Text>Value: {value}</Text>
-        <Button onPress={() => this.increase() }>INCREASE</Button>
+        <Button onPress={() => this.increase() }>Öka siffran!</Button>
     </View>
     )
   }
