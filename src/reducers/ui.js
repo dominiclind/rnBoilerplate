@@ -27,6 +27,13 @@ export default function (state = initialState, action) {
       value: state.value + 1
 		});
 
+  case types.DECREASE_VALUE:
+		// state == old state
+		return Object.assign({}, state, {
+			// new state
+      value: state.value - 1
+		});
+
 
   default:
     return state

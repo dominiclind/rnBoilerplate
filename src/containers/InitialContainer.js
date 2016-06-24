@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { incrementValue } from '../actions/ui';
-
+import { incrementValue, decreaseValue } from '../actions/ui';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } from 'react-native';
 
 import Button from '../components/Button/Button';
+import TextInput from '../components/TextInput/TextInput';
 
 class InitialContainer extends Component {
 
@@ -22,8 +23,11 @@ class InitialContainer extends Component {
   }
   increase() {
     const { dispatch } = this.props;
-    console.log('increaseee!!');
     dispatch(incrementValue());
+  }
+  decrease() {
+    const { dispatch } = this.props;
+    dispatch(decreaseValue());
   }
 
   render() {
@@ -31,8 +35,28 @@ class InitialContainer extends Component {
 
     return (
       <View style={ styles.page }>
-        <Text>Value: {value}</Text>
-        <Button onPress={() => this.increase() }>Öka siffran!</Button>
+        <View style={{
+            flex: 1,
+            padding: 20,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <Text style={styles.value}>{value}</Text>
+        </View>
+        <Button
+          style={{marginBottom: 0}}
+          color="#6aeec0"
+          onPress={() => this.increase()}
+        >
+          Increase
+        </Button>
+        <Button
+          style={{marginBottom: 0}}
+          color="#a990e0"
+          onPress={() => this.decrease()}
+        >
+          Decrease
+        </Button>
     </View>
     )
   }
@@ -42,9 +66,11 @@ class InitialContainer extends Component {
 // styles
 const styles = StyleSheet.create({
   page : {
-    flex: 1,
-    justifyContent:'center',
-    alignItems: 'center'
+    flex: 1
+  },
+  value: {
+    color: 'white',
+    fontSize: 180
   }
 });
 

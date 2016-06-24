@@ -8,3 +8,9 @@ export function incrementValue() {
 	  type: types.INCREMENT_VALUE
 	};
 }
+// action : decreaseValue
+export function decreaseValue() {
+	return {
+	  type: types.DECREASE_VALUE
+	};
+}
