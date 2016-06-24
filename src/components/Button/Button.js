@@ -4,7 +4,9 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  LayoutAnimation,
+  Animated
 } from 'react-native';
 
 import onecolor from 'onecolor';
@@ -14,7 +16,8 @@ class Button extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      down: false
+      down: false,
+      downAnim: new Animated.Value(0)
     }
   }
 
@@ -23,17 +26,34 @@ class Button extends Component {
 
   _onPressIn() {
     const { color } = this.props;
+
+    Animated.timing(this.state.downAnim, {
+      toValue: 1,
+      duration: 60
+    }).start();
     this.setState({ down: true });
   }
   _onPressOut() {
+
+    Animated.timing(this.state.downAnim, {
+      toValue: 0,
+      duration: 150
+    }).start();
     this.setState({ down: false });
   }
   render() {
     const { pill, small, color, style} = this.props;
     const { down } = this.state;
-    const darkerColor = onecolor(color).black(.4).hex();
+    const darkerColor = onecolor(color).black(.3);
+    const colorAnim = this.state.downAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: [
+        onecolor(color).cssa(),
+        darkerColor.cssa()
+      ]
+    });
     const colorStyle = {
-      backgroundColor: down ? darkerColor : color
+      backgroundColor: colorAnim
     };
     return (
       <TouchableWithoutFeedback
@@ -41,7 +61,7 @@ class Button extends Component {
         onPressIn={() => this._onPressIn()}
         onPressOut={() => this._onPressOut()}
       >
-        <View style={[
+        <Animated.View style={[
             styles.component,
             this.props.pill ? styles.pill : {},
             this.props.small ? styles.small : {},
@@ -57,7 +77,7 @@ class Button extends Component {
           >
             {this.props.children}
           </Text>
-        </View>
+        </Animated.View>
       </TouchableWithoutFeedback>
     );
   }
