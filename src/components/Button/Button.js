@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {
   View,
   Text,
@@ -8,7 +7,7 @@ import {
   LayoutAnimation,
   Animated
 } from 'react-native';
-
+import { FONT_FAMILY } from '../../config';
 import onecolor from 'onecolor';
 
 class Button extends Component {
@@ -26,7 +25,6 @@ class Button extends Component {
 
   _onPressIn() {
     const { color } = this.props;
-
     Animated.timing(this.state.downAnim, {
       toValue: 1,
       duration: 60
@@ -34,7 +32,6 @@ class Button extends Component {
     this.setState({ down: true });
   }
   _onPressOut() {
-
     Animated.timing(this.state.downAnim, {
       toValue: 0,
       duration: 150
@@ -109,6 +106,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '500',
     fontSize: FONT_SIZE,
+    // fontFamily: FONT_FAMILY
   },
   smallText: {
     fontSize: FONT_SIZE * SMALL_MODIFIER,
