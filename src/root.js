@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux'
-import configureStore from './store/configure-store'
-import Routes from './routes'
-import Reactotron from 'reactotron'
+import {
+  View,
+  Text
+} from 'react-native';
 
-// connect with defaults
-Reactotron.connect()
-const store = configureStore();
-
-class Root extends React.Component {
+class Root extends Component {
   render () {
     return (
-      <Provider store={store}>
-        <Routes></Routes>
-      </Provider>
+      <View style={{ flex:1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Amazing react app!</Text>
+      </View>
     );
   }
 }

@@ -8,26 +8,18 @@
  */
 
 #import "AppDelegate.h"
+
+#import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
-#import "CodePush.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
   NSURL *jsCodeLocation;
-  NSLog (@"Font families: %@", [UIFont familyNames]);
-  
-  // jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-  // jsCodeLocation = [CodePush bundleURL];
-  //
-      #ifdef DEBUG
-          jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
-      #else
-          jsCodeLocation = [CodePush bundleURL];
-      #endif
-  
+
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"rnBoilerplate"
                                                initialProperties:nil
