@@ -7,7 +7,7 @@ import {
   LayoutAnimation,
   Animated
 } from 'react-native';
-import { FONT_FAMILY } from '../../config';
+import { FONT_FAMILY } from 'app/config';
 import onecolor from 'onecolor';
 
 class Button extends Component {
