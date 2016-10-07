@@ -1,7 +1,0 @@
-$1
-	case types.{{constantCase action}}:
-		// state == old state
-		return Object.assign({}, state, {
-			// new state
-
-		})
