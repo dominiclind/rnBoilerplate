@@ -6,8 +6,6 @@ import {
   StyleSheet
 } from 'react-native';
 
-import * as Animatable from 'react-native-animatable';
-
 @observer
 class {{properCase name}} extends Component {
 
@@ -21,13 +19,11 @@ class {{properCase name}} extends Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Animatable.Text
+        <Text
           style={styles.screenHeader}
-          animation="fadeIn"
-          duration={500}
         >
           {{properCase name }} screen
-        </Animatable.Text>
+        </Text>
       </View>
     )
   }
